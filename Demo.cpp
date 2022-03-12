@@ -1,8 +1,8 @@
 /**
  * Demo program for mat exercise.
  * 
- * Author: Or cohen
- * Since : 2022-03
+ * Author: Tal Zichlinsky
+ * Since : 2022-01
  */
 
 #include "mat.hpp"

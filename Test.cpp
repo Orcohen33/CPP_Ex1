@@ -98,11 +98,11 @@ TEST_CASE("Good input")
                                                     "0-0-0-0\n"
                                                     "0-----0\n"
                                                     "0000000")); // Not equal
-    
+
     CHECK(nospaces(mat(3, 3, '0', '1')) != nospaces("000\n"
                                                     "000\n"
                                                     "000"));
-    
+
     CHECK(nospaces(mat(3, 5, '0', '1')) != nospaces("000\n"
                                                     "000\n"
                                                     "000\n"

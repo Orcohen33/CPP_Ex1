@@ -4,7 +4,7 @@
  * 
  * IMPORTANT: Please write more tests - the tests here are only for example and are not complete.
  *
- * AUTHORS: <Or cohen>
+ * AUTHORS: <Please write your names here>
  * 
  * Date: 2021-02
  */
