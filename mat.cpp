@@ -2,6 +2,7 @@
 #include <string>
 #include <iostream>
 #include <stdexcept>
+#include <vector>
 using namespace std;
 
 
@@ -11,7 +12,9 @@ string mat(int x, int y, char a, char b){
     if (x%2==0||y%2==0){
         throw invalid_argument("Mat size is always odd");
     }
-    if ( int(a) < 32 || int(a) > 127 || int(b) < 32 || int(b) > 127){
+    const auto lower_assci = 32;
+    const auto higher_assci = 127;
+    if ( (a < lower_assci || a > higher_assci) || (b < lower_assci || b > higher_assci)){
         throw invalid_argument("Mat contains two symbols(type char)");
     }
     if (x<0 || y<0){
@@ -21,9 +24,12 @@ string mat(int x, int y, char a, char b){
     r - Row = y
     c - Col = x
     */
-    int r = 0, c = 0, i;
+    int r = 0;
+    int c = 0;
+    int i = 0;
     // 2D Mat
-    char mat[y][x];
+    vector<char> v(x, a);               // initialize columns
+    vector<vector<char>> mat(y, v);     // initialize rows
     char curr_char_rect = a;
     /*
     Manufacturing mat with rings design as the company asked.
@@ -58,19 +64,12 @@ string mat(int x, int y, char a, char b){
 
     }
     /*
-    Because i decreased the value of x and y, i initialize it again to be as it started.
-    */
-    x = sizeof(mat[0])/ sizeof(mat[0][0]);
-    y = sizeof(mat)/ sizeof(mat[0]);
-
-    /*
     Fills 'ans' for the output
     */
-    string ans = "";
-    int row, col;
-    for(row = 0; row < y; row++){
-        for(col = 0; col < x; col++){
-            ans+= mat[row][col];
+    string ans;
+    for (auto const &row: mat){
+        for(char val: row){
+            ans += val;
         }
         ans+="\n";
     }
