@@ -1,8 +1,8 @@
 /**
  * Demo program for mat exercise.
  * 
- * Author: Tal Zichlinsky
- * Since : 2022-01
+ * Author: Or cohen
+ * Since : 2022-03
  */
 
 #include "mat.hpp"
@@ -35,4 +35,17 @@ int main() {
 	} catch (exception& ex) {
 	 	cout << "   caught exception: " << ex.what() << endl;  // should print "Mat size is always odd"
 	}
+	// NEW CATCH EXCEPTIONS
+	try {
+		cout << ariel::mat(11, 5, 22, '%') << endl; // Exception - not a valid code
+	} catch (exception& ex) {
+	 	cout << "   caught exception: " << ex.what() << endl;  // should print "Mat contains two symbols(type char)"
+	}
+
+	try {
+		cout << ariel::mat(-3, 5, '-', '%') << endl; // Exception - not a valid code
+	} catch (exception& ex) {
+	 	cout << "   caught exception: " << ex.what() << endl;  // should print "Mat dimension cant be with negative numbers"
+	}
+
 }
